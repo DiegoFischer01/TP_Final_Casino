@@ -27,7 +27,9 @@ export class Juego {
         const resultado = this.tragamonedas.girar();
         const premio = this.tragamonedas.obtenerPremio(resultado, apuesta);
         cliente.agregarSaldo(premio);
-  
+        
+        //join: Muestra los resultados de un array de string de forma seguida y con el separador que le indico yo.
+        //En este caso (', ') 
         console.log(`Resultado: ${resultado.join(', ')}`);
         if (premio > 0) {
             console.log(`¡Felicidades! Has ganado ${premio}.`);
