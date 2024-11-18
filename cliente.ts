@@ -16,6 +16,7 @@ export class Cliente {
         }
     }
 
+    //Agregar saldo se usa solamente cuando gana. Es decir, Jugar va a llamar a este metodo, si se da que el cliente gana.
     public agregarSaldo(cantidad: number): void {
         this.saldo += cantidad;
     }

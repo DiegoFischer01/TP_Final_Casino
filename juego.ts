@@ -20,8 +20,10 @@ export class Juego {
             console.log(`Saldo insuficiente para realizar la apuesta.`);
             return;
         }
-  
+        
+        //Si paso las validaciones de arriba, lo primero que hace es descontar la apuesta del saldo del cliente.
         cliente.descontarSaldo(apuesta);
+        //Lamamos a los metodos de tragamonedas...
         const resultado = this.tragamonedas.girar();
         const premio = this.tragamonedas.obtenerPremio(resultado, apuesta);
         cliente.agregarSaldo(premio);
