@@ -13,6 +13,8 @@ Link repositorio GitHub: https://github.com/DiegoFischer01/TP_Final_Casino.git
 
 Link Trello: https://trello.com/b/54dBHFsb/trabajo-casino
 
+Link diagrama (draw.io): https://app.diagrams.net/#G1V_TAcL0PXIqi63b3sivm-vEZuOKUfDF_#%7B%22pageId%22%3A%22GT6rlZ7RRFBa8CH3EJhR%22%7D
+
 Consigna: 
 
 * Generar un programa en el cual se puedan realizar apuestas dentro de un casino.
