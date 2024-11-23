@@ -1,26 +1,22 @@
-import { Cliente } from "./cliente";
-import { Tragamonedas} from "./tragamonedas";
-import { TragamonedasEgipto } from "./tragamonedasEgipto";
-import { tragamonedasAnimal } from "./tragamonedasAnimal";
-import { Juego } from "./juego";
+import { Cliente } from './cliente';
+import { TragamonedasEgipto } from './tragamonedasEgipto';
+import { TragamonedasAnimal } from './tragamonedasAnimal';
 
+// Crear cliente
+const clienteJuan = new Cliente("Juan", 100); // Cliente con saldo inicial de 100
 
+// Crear tragamonedas temática egipcia
+const tragamonedasEgipto = new TragamonedasEgipto("Egipto Mágico", 3, 5, 50);
 
-const clienteJuan = new Cliente("Juan Perez", 1000);
-const clienteBrai= new Cliente ("Braian",1500)
-const tragamonedasEgipto = new TragamonedasEgipto("Tragamonedas Egipcio", 3, 5, 100);
-const tragamonedasAnimales= new tragamonedasAnimal ("Tragamonedas Animal",3, 15,150 )
+// Crear tragamonedas temática de animales
+const tragamonedasAnimal = new TragamonedasAnimal("Safari Salvaje", 3, 5, 50);
 
-const juegoClasico = new Juego(tragamonedasEgipto);
-const juegoAnimal =new Juego(tragamonedasAnimales)
+// Juan intenta jugar con diferentes tragamonedas y apuestas
+tragamonedasEgipto.jugar(clienteJuan, 10);
+tragamonedasEgipto.jugar(clienteJuan, 60); // Apuesta fuera del rango
+tragamonedasEgipto.jugar(clienteJuan, 5);
 
-juegoClasico.jugar(clienteJuan, 50); // Cliente Juan juega con 50 unidades de saldo
-juegoClasico.jugar(clienteJuan,35);
-juegoClasico.jugar(clienteJuan,40);
-juegoClasico.jugar(clienteJuan,80);
-juegoClasico.jugar(clienteJuan,35);
-juegoClasico.jugar(clienteJuan,20);
+console.log("Cambiando a tragamonedas de animales...");
 
-juegoAnimal.jugar(clienteBrai,80) //Cliente Braian arranca a jugar con un saldo de 80
-juegoAnimal.jugar(clienteBrai,90)
-juegoAnimal.jugar(clienteBrai,100)
+tragamonedasAnimal.jugar(clienteJuan, 10);
+tragamonedasAnimal.jugar(clienteJuan, 5);
