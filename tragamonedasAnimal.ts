@@ -1,6 +1,5 @@
 import { Tragamonedas } from "./tragamonedas";
 
-
 export class TragamonedasAnimal extends Tragamonedas {
     private animales: string[];
 

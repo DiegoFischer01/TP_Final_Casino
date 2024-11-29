@@ -6,11 +6,11 @@ import { TragamonedasAnimal } from './tragamonedasAnimal';
 const casino = new Casino();
 
 // Registrar juegos
-const tragamonedasEgipto = new TragamonedasEgipto("Egipto Mágico", 3, 5, 50);
-const tragamonedasAnimal = new TragamonedasAnimal("Safari Salvaje", 3, 5, 50);
-
-casino.registrarJuego('Tragamonedas Egipto', tragamonedasEgipto);
-casino.registrarJuego('Tragamonedas Animales', tragamonedasAnimal);
+const tragamonedasEgipto = new TragamonedasEgipto('Tragamonedas Egipto', 3, 5, 50);
+const tragamonedasAnimal = new TragamonedasAnimal('Tragamonedas Animales', 3, 5, 50);
+casino.registrarJuego(tragamonedasEgipto);
+casino.registrarJuego(tragamonedasAnimal);
 
 // Iniciar el casino
 casino.iniciar();
+

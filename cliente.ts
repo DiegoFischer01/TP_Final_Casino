@@ -1,4 +1,3 @@
-
 export class Cliente {
     nombre: string;
     saldo: number;
@@ -21,3 +20,4 @@ export class Cliente {
         this.saldo += cantidad;
     }
 }
+

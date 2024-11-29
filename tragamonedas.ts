@@ -41,3 +41,4 @@ export abstract class Tragamonedas extends Juego {
     protected abstract girar(): string[];
     public abstract obtenerPremio(resultado: string[], apuesta: number): number;
 }
+

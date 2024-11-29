@@ -1,7 +1,4 @@
-import { Tragamonedas } from "./tragamonedas";
-import { TragamonedasEgipto } from "./tragamonedasEgipto";
 import { Cliente } from "./cliente";
-
 
 export abstract class Juego {
     protected nombre: string;
@@ -12,3 +9,4 @@ export abstract class Juego {
 
     public abstract jugar(cliente: Cliente, apuesta: number): void;
 }
+
