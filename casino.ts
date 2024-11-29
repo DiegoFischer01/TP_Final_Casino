@@ -1,9 +1,6 @@
-
 import readlineSync from 'readline-sync';
 import { Cliente } from './cliente';
-import { TragamonedasEgipto } from './tragamonedasEgipto';
-import { TragamonedasAnimal } from './tragamonedasAnimal';
-import { Juego } from './juego';
+import { Juego } from './Juego';
 
 export class Casino {
     private cliente: Cliente | null = null; // Inicializado como null
@@ -25,7 +22,7 @@ export class Casino {
             if (!juegoActual) {
                 console.log('\n--- Menú del Casino ---');
                 this.juegos.forEach((juego, index) => {
-                    console.log(`${index + 1}. ${juego['nombre']}`);
+                    console.log(`${index + 1}. ${juego.nombre}`);
                 });
                 console.log('0. Salir');
                 const opcion = readlineSync.questionInt('Elige un juego: ');

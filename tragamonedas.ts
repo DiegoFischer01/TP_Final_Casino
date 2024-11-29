@@ -1,13 +1,14 @@
 import { Cliente } from "./cliente";
-import { Juego } from "./juego";
+import { Juego } from "./Juego";
 
-export abstract class Tragamonedas extends Juego {
+export abstract class Tragamonedas implements Juego {
+    nombre: string;
     protected cantidadSimbolos: number;
     protected apuestaMinima: number;
     protected apuestaMaxima: number;
 
     constructor(nombre: string, cantidadSimbolos: number, apuestaMinima: number, apuestaMaxima: number) {
-        super(nombre);
+        this.nombre = nombre;
         this.cantidadSimbolos = cantidadSimbolos;
         this.apuestaMinima = apuestaMinima;
         this.apuestaMaxima = apuestaMaxima;
@@ -41,4 +42,3 @@ export abstract class Tragamonedas extends Juego {
     protected abstract girar(): string[];
     public abstract obtenerPremio(resultado: string[], apuesta: number): number;
 }
-
