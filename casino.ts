@@ -2,7 +2,7 @@
 import readlineSync from 'readline-sync';
 import { Cliente } from './cliente';
 import { TragamonedasEgipto } from './tragamonedasEgipto';
-import { TragamonedasAnimal } from './tragamonedasAnimal'; 
+import { TragamonedasAnimal } from './tragamonedasAnimal';
 import { Juego } from './juego';
 
 export class Casino {
@@ -19,24 +19,33 @@ export class Casino {
         const saldoInicial = readlineSync.questionInt('Introduce tu saldo inicial: ');
         this.cliente = new Cliente(nombre, saldoInicial);
 
-        while (true) {
-            console.log('\n--- Menú del Casino ---');
-            this.juegos.forEach((juego, index) => {
-                console.log(`${index + 1}. ${juego['nombre']}`);
-            });
-            console.log('0. Salir');
-            const opcion = readlineSync.questionInt('Elige un juego: ');
+        let juegoActual: Juego | null = null;
 
-            if (opcion === 0) {
-                console.log('Gracias por jugar. ¡Hasta la próxima!');
-                return;
+        while (true) {
+            if (!juegoActual) {
+                console.log('\n--- Menú del Casino ---');
+                this.juegos.forEach((juego, index) => {
+                    console.log(`${index + 1}. ${juego['nombre']}`);
+                });
+                console.log('0. Salir');
+                const opcion = readlineSync.questionInt('Elige un juego: ');
+
+                if (opcion === 0) {
+                    console.log('Gracias por jugar. ¡Hasta la próxima!');
+                    return;
+                }
+
+                juegoActual = this.juegos[opcion - 1];
+                if (!juegoActual) {
+                    console.log('Opción inválida.');
+                    continue;
+                }
             }
 
-            const juego = this.juegos[opcion - 1];
-            if (juego) {
-                this.jugarJuego(juego);
-            } else {
-                console.log('Opción inválida.');
+            this.jugarJuego(juegoActual);
+            const continuar = readlineSync.question('¿Deseas seguir jugando al mismo juego? (s/n): ');
+            if (continuar.toLowerCase() !== 's') {
+                juegoActual = null;
             }
         }
     }
@@ -51,5 +60,3 @@ export class Casino {
         juego.jugar(this.cliente, apuesta);
     }
 }
-
-
