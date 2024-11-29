@@ -13,4 +13,3 @@ casino.registrarJuego(tragamonedasAnimal);
 
 // Iniciar el casino
 casino.iniciar();
-

@@ -5,7 +5,7 @@ export class TragamonedasAnimal extends Tragamonedas {
 
     constructor(nombre: string, cantidadSimbolos: number, apuestaMinima: number, apuestaMaxima: number) {
         super(nombre, cantidadSimbolos, apuestaMinima, apuestaMaxima);
-        this.animales = ['Caballo', 'Tigre', 'Aguila', 'Gorila'];
+        this.animales = ['Caballo', 'Tigre', 'Águila', 'Gorila'];
     }
 
     protected girar(): string[] {
