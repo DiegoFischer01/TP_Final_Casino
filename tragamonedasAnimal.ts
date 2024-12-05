@@ -5,7 +5,7 @@ export class TragamonedasAnimal extends Tragamonedas {
 
     constructor(nombre: string, cantidadSimbolos: number, apuestaMinima: number, apuestaMaxima: number) {
         super(nombre, cantidadSimbolos, apuestaMinima, apuestaMaxima);
-        this.animales = ['Caballo', 'Tigre', 'Águila', 'Gorila'];
+        this.animales = ['Caballo', 'Tigre', 'Águila', 'Gorila', 'Dragon'];
     }
 
     protected girar(): string[] {
@@ -16,6 +16,6 @@ export class TragamonedasAnimal extends Tragamonedas {
     }
 
     public obtenerPremio(resultado: string[], apuesta: number): number {
-        return resultado.every(simbolo => simbolo === resultado[0]) ? apuesta * 15 : 0;
+        return resultado.every(simbolo => simbolo === resultado[0]) ? apuesta * 20 : 0;
     }
 }
