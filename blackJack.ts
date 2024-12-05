@@ -9,39 +9,45 @@ export class Blackjack implements Juego {
     }
 
     public jugar(cliente: Cliente, apuesta: number): void {
+        // Validar saldo del cliente antes de jugar
+        if (apuesta > cliente.saldo) {
+            console.log('Saldo insuficiente para realizar la apuesta.');
+            return;
+        }
+    
         // Lógica del juego de Blackjack
         const mazo = this.crearMazo();
         const manoJugador = [this.sacarCarta(mazo), this.sacarCarta(mazo)];
         const manoCrupier = [this.sacarCarta(mazo), this.sacarCarta(mazo)];
-
+    
         console.log(`Tus cartas: ${manoJugador.join(', ')}`);
         console.log(`Carta del crupier: ${manoCrupier[0]}`);
-
+    
         let valorJugador = this.calcularValorMano(manoJugador);
         let valorCrupier = this.calcularValorMano(manoCrupier);
-
+    
         while (valorJugador < 21 && this.pedirOtraCarta()) {
             manoJugador.push(this.sacarCarta(mazo));
             valorJugador = this.calcularValorMano(manoJugador);
             console.log(`Tus cartas: ${manoJugador.join(', ')} (Total: ${valorJugador})`);
             console.log(`Saldo actual: $${cliente.saldo}`);
         }
-
+    
         if (valorJugador > 21) {
             console.log('Te pasaste. Perdiste.');
             cliente.descontarSaldo(apuesta);
             console.log(`Saldo actual: $${cliente.saldo}`);
             return;
         }
-
+    
         console.log(`Cartas del crupier: ${manoCrupier.join(', ')} (Total: ${valorCrupier})`);
-
+    
         while (valorCrupier < 17) {
             manoCrupier.push(this.sacarCarta(mazo));
             valorCrupier = this.calcularValorMano(manoCrupier);
             console.log(`Cartas del crupier: ${manoCrupier.join(', ')} (Total: ${valorCrupier})`);
         }
-
+    
         if (valorCrupier > 21 || valorJugador > valorCrupier) {
             console.log('¡Ganaste!');
             cliente.agregarSaldo(apuesta * 2);
@@ -51,9 +57,10 @@ export class Blackjack implements Juego {
         } else {
             console.log('Empate.');
         }
-
+    
         console.log(`Saldo actual: $${cliente.saldo}`);
     }
+    
 
     private crearMazo(): string[] {
         const palos = ['Corazones', 'Diamantes', 'Treboles', 'Picas'];
